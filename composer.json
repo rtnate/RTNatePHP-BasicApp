@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "rtnatephp/util": "mater"
+        "rtnatephp/util": "master"
     },
     "autoload": {
         "psr-4": { 
