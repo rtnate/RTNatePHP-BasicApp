@@ -8,7 +8,7 @@ class PathHelper implements GetterAndSetter{
     use \RTNatePHP\BasicApp\Traits\ConfigHelperFunctions;
     use \RTNatePHP\Util\Traits\GettableNotSettable;
 
-    protected $config;
+    protected $configHelper;
     protected $basePath;
     protected $key;
 
