@@ -146,7 +146,7 @@ final class AppFactory
         {
             $user = include($dir.$userConfig);
             if (!is_array($user)) throw new \Exception("User configuration file should return an array");
-            $config = array_merge($config, $user);
+            $config = array_merge_recursive($config, $user);
         }
         return $config;
     }
