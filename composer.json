@@ -1,0 +1,26 @@
+{
+    "name": "rtnatephp/basic-app",
+    "description": "Basic PHP App Framework Using Slim, Twig, and PHP-DI",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nate Taylor",
+            "email": "nate@rtelectronix.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/rtnate/RTNatePHP-Util.git"
+        }
+    ],
+    "require": {
+        "rtnatephp/util": "mater"
+    },
+    "autoload": {
+        "psr-4": { 
+                    "RTNatePHP\\BasicApp\\": "./src/",
+        }
+    }
+}
