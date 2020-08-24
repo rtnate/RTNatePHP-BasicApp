@@ -1,0 +1,52 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "ab33912cba0039f85cc1e80260b02d82",
+    "packages": [
+        {
+            "name": "rtnatephp/util",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rtnate/RTNatePHP-Util.git",
+                "reference": "a90e98df3ff80aef88f75a6a25a62fb33c6f3355"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rtnate/RTNatePHP-Util/zipball/a90e98df3ff80aef88f75a6a25a62fb33c6f3355",
+                "reference": "a90e98df3ff80aef88f75a6a25a62fb33c6f3355",
+                "shasum": ""
+            },
+            "type": "library",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nate Taylor",
+                    "email": "nate@rtelectronix.com"
+                }
+            ],
+            "description": "PHP Utility Classes",
+            "support": {
+                "source": "https://github.com/rtnate/RTNatePHP-Util/tree/master",
+                "issues": "https://github.com/rtnate/RTNatePHP-Util/issues"
+            },
+            "time": "2020-08-24T18:07:05+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "rtnatephp/util": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
+}
