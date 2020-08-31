@@ -32,7 +32,7 @@ final class AppFactory
         $config = $this->getConfiguration();
         $this->containerFactory->add(['config' => $config]);
         //Load providers from the app directory
-        $providers = $this->getProviders();
+        $providers = $this->getProviders($config);
         $this->containerFactory->add($providers);
         //Build the container
         $container = $this->containerFactory->build();
@@ -158,16 +158,16 @@ final class AppFactory
         $providers = include($providersPath);
         if (!is_array($providers)) throw new \Exception("Default providers file should return an array.");
         //TODO: Load User Providers
+        $dir = $this->appDirectory;
         $userProviders = [];
-        // $dir = $this->appDirectory;
-        // if (file_exists($dir.'/Providers.php'))
-        // {
-        //     $userProviders = require $dir.'/Providers.php';
-        // }
-        // else if (file_exists($dir.'/source/Providers.php'))
-        // {
-        //     $userProviders = require $dir.'/source/Providers.php';
-        // }
+        $userProvidersFile = getenv('PATH_PROVIDERS');
+        if (!$userProvidersFile) $userProvidersFile = '/source/Providers.php';
+        if (file_exists($dir.$userProvidersFile))
+        {
+            $user = include($dir.$userProvidersFile);
+            if (!is_array($user)) throw new \Exception("User providers file should return an array");
+            $userProviders = $user;
+        }
         return array_merge($providers, $userProviders);
     }
 
