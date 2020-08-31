@@ -29,6 +29,11 @@ class GenericFileLoader implements ContentLoaderInterface
         }
     }
 
+    public function info(): array 
+    {
+        return pathinfo($this->filename);
+    }
+
     public function valid(): bool
     {
         return $this->file_loaded;

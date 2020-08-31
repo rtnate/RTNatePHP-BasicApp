@@ -15,4 +15,6 @@ interface ContentLoaderInterface
     public function fileType(): string;
 
     public function html(string $containerNode = ''): string;
+
+    public function info(): array;
 }

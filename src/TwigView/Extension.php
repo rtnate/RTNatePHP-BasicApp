@@ -34,6 +34,13 @@ class Extension extends \Twig\Extension\AbstractExtension implements \Twig\Exten
         ];
     }
 
+    public function getFilters()
+    {
+        return [
+            $this->snakeCaseFilter()
+        ];
+    }
+
     public function urlHelper()
     {
         return new \Twig\TwigFunction('url', function($url)
@@ -49,6 +56,15 @@ class Extension extends \Twig\Extension\AbstractExtension implements \Twig\Exten
         {
             $helper = $this->ci->get(UrlHelper::class);
             return $helper->asset($url);
+        });
+    }
+
+    public function snakeCaseFilter()
+    {
+        return new \Twig\TwigFilter('snake_case', function($str)
+        {
+            $output = str_replace([" ", "\t", "-"], "_", $str);
+            return strtolower($output);
         });
     }
 }

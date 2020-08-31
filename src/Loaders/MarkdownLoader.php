@@ -20,7 +20,7 @@ class MarkdownLoader implements ContentLoaderInterface
             if ($contents === false) $this->parser = YamlFrontMatter::parse('');
             else
             {
-                $this->parser = YamlFrontMatter::parse('');
+                $this->parser = YamlFrontMatter::parse($contents);
                 $file_loaded = true;
             }
         }
@@ -28,6 +28,11 @@ class MarkdownLoader implements ContentLoaderInterface
         {
             $this->parser = YamlFrontMatter::parse('');
         }
+    }
+
+    public function info(): array 
+    {
+        return pathinfo($this->filename);
     }
 
     public function valid(): bool
