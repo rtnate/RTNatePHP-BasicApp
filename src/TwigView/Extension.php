@@ -2,7 +2,7 @@
 
 namespace  RTNatePHP\BasicApp\TwigView;
 
-use NateMakesStuff\Helpers\ConfigHelper;
+use RTNatePHP\BasicApp\Helpers\ConfigHelper;
 use Psr\Container\ContainerInterface;
 use RTNatePHP\BasicApp\Helpers\UrlHelper;
 use \Twig\Environment as TwigEnv;
