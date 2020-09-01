@@ -12,7 +12,6 @@ class ConnectionFactory
 
     static public function create(ContainerInterface $ci)
     {
-        self::$capsule = new Capsule;
         $config = new ConfigHelper($ci);
         $connection = 
         [
@@ -23,9 +22,23 @@ class ConnectionFactory
             "password" => $config->get('db.password'),
             "prefix" =>  $config->get('db.table_prefix')
         ];
+        //If database and username configuration isn't set
+        //Do not boot the database
+        if ($connection['database'] == 'donotuse' 
+            && $connection['username'] == 'donotuse')
+        {
+            return;
+        }
+        self::$capsule = new Capsule;
         self::$capsule->addConnection($connection);
         self::$capsule->setAsGlobal();
         self::$capsule->bootEloquent();
+    }
+
+    static public function getCapsuleOrFail()
+    {
+        if (self::$capsule ==  null) throw new \Exception('Database has not been configured');
+        return self::$capsule;
     }
 
     static public function getCapsule(){ return self::$capsule; }
