@@ -1,6 +1,6 @@
 <?php
 
-namespace NateMakesStuff\Controllers;
+namespace RTNatePHP\BasicApp\Controllers;
 
 use Slim\Psr7\Response;
 use \Twig\Environment as Twig;
