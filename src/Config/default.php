@@ -6,8 +6,8 @@ return [
         'connection' => \DI\env('DB_CONNECTION', 'mysql'),
         'host' => \DI\env('DB_HOST', '127.0.0.1'),
         'port' => \DI\env('DB_PORT', '3306'),
-        'database' => \DI\env('DB_DATABASE', 'mysql'),
-        'username' => \DI\env('DB_USERNAME', 'mysql'),
+        'database' => \DI\env('DB_DATABASE', 'donotuse'),
+        'username' => \DI\env('DB_USERNAME', 'donotuse'),
         'password' => \DI\env('DB_PASSWORD', 'mysql'),
         'table_prefix' => \DI\env('DB_TABLE_PREFIX', ''),
         'charset' => \DI\env('DB_CHARSET', 'utf8mb4')
