@@ -19,11 +19,39 @@ class BasicApp implements \ArrayAccess{
 
     private $capsule;
 
-    function __construct(ContainerInterface $container, Slim $slim) {
+    public function __construct(ContainerInterface $container, Slim $slim) {
         $this->ci = $container;
         $this->slim = $slim;
         $this->loadRoutes();
     }
+
+    static final public function prepare(ContainerInterface $container)
+    {
+        static::beforeBoot($container);
+    }
+
+    static protected function beforeBoot(ContainerInterface $conatiner)
+    {
+        return;
+    }
+
+    protected function onBoot()
+    {
+        return;
+    }
+
+    protected function beforeRun()
+    {
+        return;
+    }
+
+    public function run()
+    {
+        $this->beforeRun();
+        $this->slim->run();
+    }
+
+
 
     protected function loadMiddleware()
     {
@@ -56,6 +84,15 @@ class BasicApp implements \ArrayAccess{
         return $helper->asset($url);
     }
 
+    /**
+     * Url generating helper function.  
+     * Generates the full url for the supplied relative route.
+     * 
+     * @param string $url The relative path to generate a url for.
+     *          An empty string will return the page url.
+     * 
+     * @return string The generated url
+     */
     public function url(string $url)
     {
         $helper = $this->ci->get(UrlHelper::class);
