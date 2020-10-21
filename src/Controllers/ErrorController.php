@@ -2,14 +2,14 @@
 
 namespace RTNatePHP\BasicApp\Controllers;
 
-use NateMakesStuff\Controllers\Controller;
+use RTNatePHP\BasicApp\Controllers\Controller;
 use Throwable;
 
 class ErrorController extends Controller
 {
     protected function renderView(array $data)
     {
-        $exists = $this->twig->getLoader()->exists('errorss.twig');
+        $exists = $this->twig->getLoader()->exists('error.twig');
         if ($exists)
         {
             return $this->twig->render('error.twig', $data);

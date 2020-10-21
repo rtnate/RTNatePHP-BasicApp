@@ -37,7 +37,8 @@ class Extension extends \Twig\Extension\AbstractExtension implements \Twig\Exten
     public function getFilters()
     {
         return [
-            $this->snakeCaseFilter()
+            $this->snakeCaseFilter(),
+            $this->titleShortenedFilter()
         ];
     }
 
@@ -65,6 +66,18 @@ class Extension extends \Twig\Extension\AbstractExtension implements \Twig\Exten
         {
             $output = str_replace([" ", "\t", "-"], "_", $str);
             return strtolower($output);
+        });
+    }
+
+    public function titleShortenedFilter()
+    {
+        return new \Twig\TwigFilter('short_title', function($str)
+        {
+            //Split the title on the string ' - '
+            $split = explode(' - ', $str);
+            //Get the last element of the split array
+            $short = end($split);
+            return ucfirst($short);
         });
     }
 }
